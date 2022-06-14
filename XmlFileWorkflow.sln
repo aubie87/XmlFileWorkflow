@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFileWorkflow.Cli", "XmlFileWorkflow.Cli\XmlFileWorkflow.Cli.csproj", "{EE130CA6-BBA3-453C-84F1-6D892278D526}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFileWorkflow.Core", "XmlFileWorkflow.Core\XmlFileWorkflow.Core.csproj", "{5AD1AC90-A6CF-460A-8B64-4898EAD94827}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFileWorkflow.InputServices", "XmlFileWorkflow.InputServices\XmlFileWorkflow.InputServices.csproj", "{0D369966-C85B-49BD-8CEF-4DBC547DF1A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFileWorkflow.ProcessingServices", "XmlFileWorkflow.ProcessingServices\XmlFileWorkflow.ProcessingServices.csproj", "{B06AB4A0-A70C-4E97-AEBA-C1DAF97FB8EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABAEEA35-C0EF-4818-ABA1-63EA8C12BAC2}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE130CA6-BBA3-453C-84F1-6D892278D526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE130CA6-BBA3-453C-84F1-6D892278D526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE130CA6-BBA3-453C-84F1-6D892278D526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE130CA6-BBA3-453C-84F1-6D892278D526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD1AC90-A6CF-460A-8B64-4898EAD94827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD1AC90-A6CF-460A-8B64-4898EAD94827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD1AC90-A6CF-460A-8B64-4898EAD94827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD1AC90-A6CF-460A-8B64-4898EAD94827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D369966-C85B-49BD-8CEF-4DBC547DF1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D369966-C85B-49BD-8CEF-4DBC547DF1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D369966-C85B-49BD-8CEF-4DBC547DF1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D369966-C85B-49BD-8CEF-4DBC547DF1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B06AB4A0-A70C-4E97-AEBA-C1DAF97FB8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06AB4A0-A70C-4E97-AEBA-C1DAF97FB8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06AB4A0-A70C-4E97-AEBA-C1DAF97FB8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06AB4A0-A70C-4E97-AEBA-C1DAF97FB8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9264F229-BDDE-479D-B635-081B9F328571}
+	EndGlobalSection
+EndGlobal
