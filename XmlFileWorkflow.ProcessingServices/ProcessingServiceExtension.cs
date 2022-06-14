@@ -9,7 +9,7 @@ using XmlFileWorkflow.Core.Interfaces;
 using XmlFileWorkflow.ProcessingServices.Processing;
 
 namespace XmlFileWorkflow.ProcessingServices;
-public static class ProcessingServiceExension
+public static class ProcessingServiceExtension
 {
     public static IServiceCollection AddProcessingService(this IServiceCollection services, HostBuilderContext hostBuilder)
     {
