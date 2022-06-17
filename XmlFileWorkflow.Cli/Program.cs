@@ -1,23 +1,33 @@
-using XmlFileWorkflow.Cli;
-using XmlFileWorkflow.InputServices;
-using XmlFileWorkflow.ProcessingServices;
+using CommandLine;
+using XmlFileWorkflow.Cli.ArgsParser;
+using XmlFileWorkflow.Cli.Generate;
+using XmlFileWorkflow.Cli.Process;
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureLogging((hostBuilder, logBuilder) => ConfigureLogging(hostBuilder, logBuilder))
-    .ConfigureServices((hostBuilder,services) => ConfigureServices(hostBuilder, services))
-    .Build();
+WriteAppVersionInfo();
 
-await host.RunAsync();
+await ArgsParserFactory.GetParser()
+    .ParseArguments<GenerateArgs, ProcessArgs>(args)
+    .MapResult(
+        async (GenerateArgs options) => await GenerateHostRunner.RunAsync(args, options),
+        async (ProcessArgs options) => await ProcessHostRunner.RunAsync(args, options),
+        async (IEnumerable<Error> errors) => await ParsingErrors(errors)
+    );
 
-void ConfigureLogging(HostBuilderContext hostBuilder, ILoggingBuilder logBuilder)
+async Task ParsingErrors(IEnumerable<Error> errors)
 {
-    // nothing here yet.
+    await Task.Delay(10);
+    foreach(var error in errors)
+    {
+        Console.Error.WriteLine(error);
+    }
+
+    Environment.ExitCode = -1; // Error parsing command line.
 }
 
-void ConfigureServices(HostBuilderContext hostBuilder, IServiceCollection services)
+void WriteAppVersionInfo()
 {
-    services.AddInputService(hostBuilder);
-    services.AddProcessingService(hostBuilder);
-    services.AddHostedService<Worker>();
+    Version version = typeof(Program).Assembly.GetName().Version ?? new Version(1, 0, 0, 0);
+    string progName = "XmlFileWorkflow";
+    Console.WriteLine($"{progName} {version}");
+    Console.WriteLine();
 }
-

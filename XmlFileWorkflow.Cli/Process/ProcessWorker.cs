@@ -1,29 +1,35 @@
+﻿using Microsoft.Extensions.Options;
 using XmlFileWorkflow.Core.Interfaces;
+using XmlFileWorkflow.Core.Models.Options;
 
-namespace XmlFileWorkflow.Cli;
+namespace XmlFileWorkflow.Cli.Process;
 
-public class Worker : BackgroundService
+internal class ProcessWorker : BackgroundService
 {
     private readonly IHostApplicationLifetime _hostApplication;
     private readonly IInputService _inputService;
     private readonly IProcessingService _processingService;
-    private readonly bool _runAsync = false;
+    private readonly ProcessOptions _processOptions;
 
-    public Worker(IHostApplicationLifetime hostApplication, IInputService inputService, IProcessingService processingService)
+    public ProcessWorker(IHostApplicationLifetime hostApplication, 
+        IInputService inputService, 
+        IProcessingService processingService,
+        IOptions<ProcessOptions> processOptions)
     {
         _hostApplication = hostApplication;
         _inputService = inputService;
         _processingService = processingService;
+        _processOptions = processOptions.Value;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        if(!stoppingToken.IsCancellationRequested)
+        if (!stoppingToken.IsCancellationRequested)
         {
             Console.WriteLine($"Worker running at: {DateTimeOffset.Now}");
             await Task.Delay(10, stoppingToken);
 
-            if(_runAsync)
+            if (_processOptions.Async)
             {
                 var processingReport = await _processingService.ProcessFilesAsync(_inputService.FileList(), stoppingToken);
                 Console.WriteLine(processingReport.GetSummary());
@@ -34,6 +40,8 @@ public class Worker : BackgroundService
                 Console.WriteLine(processingReport.GetSummary());
             }
 
+            // set the exit code - only useful if this is the ONLY registered worker app.
+            Environment.ExitCode = 17;
             _hostApplication.StopApplication();
         }
     }

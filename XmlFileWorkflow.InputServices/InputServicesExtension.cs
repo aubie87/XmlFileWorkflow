@@ -11,7 +11,7 @@ using XmlFileWorkflow.InputServices.ExistingFiles;
 namespace XmlFileWorkflow.InputServices;
 public static class InputServicesExtension
 {
-    public static IServiceCollection AddInputService(this IServiceCollection services, HostBuilderContext hostBuilder)
+    public static IServiceCollection AddInputService(this IServiceCollection services)
     {
         services.AddTransient<IInputService, ExistingFilesService>();
         return services;

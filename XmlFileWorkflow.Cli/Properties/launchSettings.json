@@ -1,11 +1,35 @@
-﻿{
+{
   "profiles": {
-    "XmlFileWorkflow.Cli": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
+    "WSL": {
+      "commandName": "WSL2",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
-      }
+      },
+      "distributionName": ""
+    },
+    "XmlFileWorkflow - process async": {
+      "commandName": "Project",
+      "commandLineArgs": "process --async",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "XmlFileWorkflow - process": {
+      "commandName": "Project",
+      "commandLineArgs": "process",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
+    "XmlFileWorkflow - generate": {
+      "commandName": "Project",
+      "commandLineArgs": "generate",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
     }
   }
 }

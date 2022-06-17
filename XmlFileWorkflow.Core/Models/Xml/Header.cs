@@ -11,4 +11,6 @@ public class Header
     public DateTime RunDate { get; set; }
     public string DocumentType { get; set; } = string.Empty;
     public int StatementCount { get; init; } = 0;
+    public string GeneratedByApp { get; set; } = "XmlFileWorkflow";
+    public string GeneratedByVersion { get; set; } = "1.0.0.1";
 }

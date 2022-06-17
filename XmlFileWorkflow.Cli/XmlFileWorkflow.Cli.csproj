@@ -5,15 +5,28 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-XmlFileWorkflow.Cli-C0448E06-6A2C-4767-95D2-1AB4C8BE054C</UserSecretsId>
+    <AssemblyVersion>1.1.101</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XmlFileWorkflow.Core\XmlFileWorkflow.Core.csproj" />
+	<ProjectReference Include="..\XmlFileWorkflow.Core\XmlFileWorkflow.Core.csproj" />
     <ProjectReference Include="..\XmlFileWorkflow.InputServices\XmlFileWorkflow.InputServices.csproj" />
     <ProjectReference Include="..\XmlFileWorkflow.ProcessingServices\XmlFileWorkflow.ProcessingServices.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+	  <Content Update="appsettings.Development.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <DependentUpon>appsettings.json</DependentUpon>
+	  </Content>
+  </ItemGroup>
+
 </Project>

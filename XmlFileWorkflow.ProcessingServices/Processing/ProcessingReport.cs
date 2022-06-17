@@ -9,7 +9,6 @@ using XmlFileWorkflow.Core.Interfaces;
 namespace XmlFileWorkflow.ProcessingServices.Processing;
 public class ProcessingReport : IProcessingReport
 {
-    private readonly ILogger<ProcessingReport> _logger;
     private readonly DateTime _startTime;
     private DateTime _endTime;
 
@@ -17,9 +16,8 @@ public class ProcessingReport : IProcessingReport
     /// For unit testing purposes - we should pass in an IDateTime injected instance.
     /// </summary>
     /// <param name="logger"></param>
-    public ProcessingReport(ILogger<ProcessingReport> logger)
+    public ProcessingReport()
     {
-        _logger = logger;
         _startTime = DateTime.Now;
     }
 

@@ -18,6 +18,9 @@
 #### Questions
 - Where should folder and file naming live?
   - app settings or command line - or both?
+- How to exit the app after the last item is finished at the end of the pipeline?
+- Handle thrown exceptions during processing
+  - Add xml data that tells processing to throw an exception to test these scenarios.
 
 #### Notes
 
@@ -28,13 +31,30 @@ Once saved, loaded objects should also go "out of scope". Therefore, memory
 requirements should remain very tame no mater the size of the input files.
 
 #### Things To Do
-- Add command line parsing
+- Implement both simple and iterative xml parsing
+  - iterative should support async/await
+  - Add error event handler - unknown elements
+- Migrate fake data features from older FilePerf project
+- Add to XML
+  - Header
+    - app name
+    - app version
+    - data format version?
+  - Statements
+    - Add new "Accounts" sub-section
+    - Move some items to the accounts section
+  - Transactions
+    - Add 3 types of "lines" - to be parsed later
+      - Date
+      - Amount
+      - Number
+- ~~Add command line parsing~~
   - verbs
     - generate
       - --statement-count (per file, default 1,000)
       - --file-count (default 4)
     - 'process'
       - --run-async
-- Implement Options pattern
+- ~~Implement Options pattern~~
   - folder and file info?
 
